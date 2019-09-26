@@ -1,7 +1,7 @@
 ---
 app-id: io.gitlab.Goodvibes
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: goodvibes
 finish-args:
@@ -38,5 +38,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.4.2
-        commit: 7559cfc0291871fa05acadb4ff3f19a4a89c997c
+        tag: v0.4.3
+        commit: 6e42c9d14c3c7a2f1ef8ba2f50becea70deb42ba
