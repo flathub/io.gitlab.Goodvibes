@@ -1,7 +1,7 @@
 ---
 app-id: io.gitlab.Goodvibes
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: goodvibes
 finish-args:
@@ -33,10 +33,20 @@ modules:
       - /lib/pkgconfig
       - /share
 
+  - name: mutest
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://github.com/ebassi/mutest.git
+        commit: e6246c9ae4f36ffe8c021f0a80438f6c7a6efa3a
+    cleanup:
+      - /lib/pkgconfig
+
   - name: goodvibes
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.4.2
-        commit: 7559cfc0291871fa05acadb4ff3f19a4a89c997c
+        tag: v0.4.3
+        commit: 6e42c9d14c3c7a2f1ef8ba2f50becea70deb42ba
+    #run-tests: true # please enable for next upsteam release
