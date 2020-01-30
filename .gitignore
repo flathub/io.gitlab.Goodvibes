@@ -1,2 +1,5 @@
 *~
+*.flatpak
 .flatpak-builder
+/build/
+/repo/
