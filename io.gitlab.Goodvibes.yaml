@@ -5,8 +5,10 @@ runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: goodvibes
 finish-args:
+  - '--device=dri'
   - '--share=ipc'
   - '--share=network'
+  - '--socket=fallback-x11'
   - '--socket=x11'
   - '--socket=wayland'
   - '--socket=pulseaudio'
@@ -29,6 +31,17 @@ cleanup:
   - /share/man
 
 modules:
+  # https://gitlab.com/goodvibes/goodvibes/issues/107
+  # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/1199
+  - name: gst-plugins-bad
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz
+        sha256: f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74
+      - type: patch
+        path: gst-plugins-bad--fdkaacdec-add-support-for-mpegversion-2.patch
+
   - name: keybinder
     sources:
       - type: archive
@@ -53,6 +66,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.5
-        commit: 6f5a8754bcd029e68c5c4f2c3ffd055a877b1873
+        tag: v0.5.1
+        commit: 6ca1067d35b45e151392d1c2da652979e0f59cb6
     #run-tests: true     # https://github.com/flatpak/flatpak-builder/issues/229
