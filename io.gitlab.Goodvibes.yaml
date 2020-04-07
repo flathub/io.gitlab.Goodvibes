@@ -31,6 +31,21 @@ cleanup:
   - /share/man
 
 modules:
+  # https://gitlab.com/goodvibes/goodvibes/issues/114
+  # https://gitlab.gnome.org/GNOME/libsoup/issues/148
+  # Drop this patch when libsoup >= 2.67.93
+  - name: libsoup
+    buildsystem: meson
+    config-opts:
+      - '-Dgssapi=false'
+      - '-Dvapi=false'
+    sources:
+      - type: archive
+        url: https://gitlab.gnome.org/GNOME/libsoup/-/archive/2.66.3/libsoup-2.66.3.tar.gz
+        sha256: e1cf065725cad9020dfc472f75c336ced5319eb799418bcd91d9e7289883dbc4
+      - type: patch
+        path: libsoup--handle-response-header-transfer-encoding-identity.patch
+
   # https://gitlab.com/goodvibes/goodvibes/issues/107
   # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/1199
   - name: gst-plugins-bad
