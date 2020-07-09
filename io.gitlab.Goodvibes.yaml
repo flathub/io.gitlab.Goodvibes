@@ -81,6 +81,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.5.2
-        commit: 433636503a7eaf53e276f1369fa40bc083aa9215
+        tag: v0.5.3
+        commit: 78bd54f8ccde713152bdf014e64d2ede2fc64830
     #run-tests: true     # https://github.com/flatpak/flatpak-builder/issues/229
