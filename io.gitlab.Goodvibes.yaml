@@ -11,12 +11,8 @@ finish-args:
   - '--socket=fallback-x11'
   - '--socket=wayland'
   - '--socket=pulseaudio'
-  # Until a sandbox-compatible backend is available, applications that require
-  # access to dconf can do so with the following options:
-  - '--filesystem=xdg-run/dconf'
-  - '--filesystem=~/.config/dconf:ro'
-  - '--talk-name=ca.desrt.dconf'
-  - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
+  # Migrate the DConf settings from the host into the sandbox
+  - '--metadata=X-DConf=migrate-path=/io/gitlab/Goodvibes/'
   # MPRIS2 support
   - '--own-name=org.mpris.MediaPlayer2.Goodvibes'
 
