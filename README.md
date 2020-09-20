@@ -13,9 +13,11 @@ This builds both the Flatpak repo (in `repo`) and the bundle as
 
     $ make install
 
-Then run the application with `make run`, or debug with `make debug`.
+Then run the application:
 
-An example of debug session:
+    $ make run
+
+If things go wrong:
 
     $ make debug
     [📦] $ alias ls='ls --color'
