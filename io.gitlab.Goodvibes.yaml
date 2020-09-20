@@ -1,7 +1,7 @@
 ---
 app-id: io.gitlab.Goodvibes
 runtime: org.freedesktop.Platform
-runtime-version: '19.08'
+runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 command: goodvibes
 finish-args:
@@ -31,29 +31,18 @@ cleanup:
   - /share/man
 
 modules:
-  # https://gitlab.com/goodvibes/goodvibes/issues/114
-  # https://gitlab.gnome.org/GNOME/libsoup/issues/148
-  # Drop this patch when libsoup >= 2.67.93
-  - name: libsoup
-    buildsystem: meson
-    config-opts:
-      - '-Dgssapi=false'
-      - '-Dvapi=false'
-    sources:
-      - type: archive
-        url: https://gitlab.gnome.org/GNOME/libsoup/-/archive/2.66.3/libsoup-2.66.3.tar.gz
-        sha256: e1cf065725cad9020dfc472f75c336ced5319eb799418bcd91d9e7289883dbc4
-      - type: patch
-        path: libsoup--handle-response-header-transfer-encoding-identity.patch
-
   # https://gitlab.com/goodvibes/goodvibes/issues/107
   # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/1199
+  # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/-/merge_requests/1038
+  # Apparently, scheduled for inclusion in 1.16.3
   - name: gst-plugins-bad
     buildsystem: meson
     sources:
       - type: archive
         url: https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz
         sha256: f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74
+      - type: patch
+        path: gst-plugins-bad--vulkan-Drop-use-of-VK_RESULT_BEGIN_RANGE.patch
       - type: patch
         path: gst-plugins-bad--fdkaacdec-add-support-for-mpegversion-2.patch
 
@@ -81,6 +70,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.5.3
-        commit: 78bd54f8ccde713152bdf014e64d2ede2fc64830
-    #run-tests: true     # https://github.com/flatpak/flatpak-builder/issues/229
+        tag: v0.6
+        commit: 3fdfb44f6dc57a316d0e204bb45ef025505b803f
+    run-tests: true

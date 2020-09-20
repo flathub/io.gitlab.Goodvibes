@@ -2,7 +2,7 @@ APP_ID := io.gitlab.Goodvibes
 
 RUNTIME_PLATFORM := org.freedesktop.Platform
 RUNTIME_SDK      := org.freedesktop.Sdk
-RUNTIME_VERSION  := 19.08
+RUNTIME_VERSION  := 20.08
 
 BUILD_DIR := build
 REPO_DIR  := repo
