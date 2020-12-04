@@ -31,21 +31,6 @@ cleanup:
   - /share/man
 
 modules:
-  # https://gitlab.com/goodvibes/goodvibes/issues/107
-  # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/issues/1199
-  # https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad/-/merge_requests/1038
-  # Apparently, scheduled for inclusion in 1.16.3
-  - name: gst-plugins-bad
-    buildsystem: meson
-    sources:
-      - type: archive
-        url: https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz
-        sha256: f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74
-      - type: patch
-        path: gst-plugins-bad--vulkan-Drop-use-of-VK_RESULT_BEGIN_RANGE.patch
-      - type: patch
-        path: gst-plugins-bad--fdkaacdec-add-support-for-mpegversion-2.patch
-
   - name: keybinder
     sources:
       - type: archive
@@ -70,6 +55,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.6
-        commit: 3fdfb44f6dc57a316d0e204bb45ef025505b803f
+        tag: v0.6.1
+        commit: 237243a04dee0103f635b758a4772fa298cdbf7c
     run-tests: true
