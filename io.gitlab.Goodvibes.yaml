@@ -42,8 +42,6 @@ modules:
         url: https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz
         sha256: f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74
       - type: patch
-        path: gst-plugins-bad--vulkan-Drop-use-of-VK_RESULT_BEGIN_RANGE.patch
-      - type: patch
         path: gst-plugins-bad--fdkaacdec-add-support-for-mpegversion-2.patch
 
   - name: keybinder
