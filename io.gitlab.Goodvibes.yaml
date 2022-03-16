@@ -36,7 +36,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/ebassi/mutest.git
-        commit: e6246c9ae4f36ffe8c021f0a80438f6c7a6efa3a
+        commit: f0dcb2a48a4a8ef3dc1f7327bb0d4056a798c1a7
 
   - name: goodvibes
     buildsystem: meson
