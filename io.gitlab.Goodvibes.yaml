@@ -31,12 +31,6 @@ cleanup:
   - /share/man
 
 modules:
-  - name: keybinder
-    sources:
-      - type: archive
-        url: https://github.com/kupferlauncher/keybinder/releases/download/keybinder-3.0-v0.3.2/keybinder-3.0-0.3.2.tar.gz
-        sha256: e6e3de4e1f3b201814a956ab8f16dfc8a262db1937ff1eee4d855365398c6020
-
   - name: mutest
     buildsystem: meson
     sources:
@@ -46,6 +40,7 @@ modules:
 
   - name: goodvibes
     buildsystem: meson
+    config-opts: [ -Dfeat-hotkeys=false ]
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
