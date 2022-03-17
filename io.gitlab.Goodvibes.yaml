@@ -31,6 +31,16 @@ cleanup:
   - /share/man
 
 modules:
+  # Build gstreamer from main branch
+  - name: gstreamer
+    buildsystem: meson
+    config-opts: [ -Ddoc=disabled ]
+    sources:
+      - type: git
+        url: https://gitlab.freedesktop.org/gstreamer/gstreamer.git
+        branch: main
+        disable-submodules: true
+
   - name: mutest
     buildsystem: meson
     sources:
