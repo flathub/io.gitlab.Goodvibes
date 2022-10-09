@@ -9,7 +9,6 @@ finish-args:
   - '--share=ipc'
   - '--share=network'
   - '--socket=fallback-x11'
-  - '--socket=x11'
   - '--socket=wayland'
   - '--socket=pulseaudio'
   # Until a sandbox-compatible backend is available, applications that require
