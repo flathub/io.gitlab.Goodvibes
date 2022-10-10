@@ -9,7 +9,6 @@ finish-args:
   - '--share=ipc'
   - '--share=network'
   - '--socket=fallback-x11'
-  - '--socket=x11'
   - '--socket=wayland'
   - '--socket=pulseaudio'
   # Until a sandbox-compatible backend is available, applications that require
@@ -55,6 +54,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.7.4
-        commit: 244f5776826e33fce0af3170735caba909c5fbac
+        tag: v0.7.5
+        commit: e9cef6350a72517873ad1351853739e9462deb1d
     run-tests: true
