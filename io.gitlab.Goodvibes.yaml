@@ -1,7 +1,7 @@
 ---
 app-id: io.gitlab.Goodvibes
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: goodvibes
 finish-args:
@@ -30,16 +30,15 @@ cleanup:
   - /share/man
 
 modules:
-  # Build latest gstreamer from 1.20 branch
-  - name: gstreamer
+  - name: libsoup
     buildsystem: meson
-    config-opts: [ -Ddoc=disabled ]
+    config-opts:
+      - '-Dgssapi=disabled'
+      - '-Dvapi=disabled'
     sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/gstreamer/gstreamer.git
-        tag: 1.20.1
-        commit: 4bbb293eacbb795b45152e97796092ebbdee9d28
-        disable-submodules: true
+      - type: archive
+        url: https://gitlab.gnome.org/GNOME/libsoup/-/archive/2.74.3/libsoup-2.74.3.tar.gz
+        sha256: 2e7a1313c2223c7e70cda90a8c02c679ab2bf3935c07b5bb028a9b5550411b96
 
   - name: mutest
     buildsystem: meson
@@ -54,6 +53,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.7.5
-        commit: e9cef6350a72517873ad1351853739e9462deb1d
+        tag: v0.7.6
+        commit: b7a31c113307406866cec76d4d6a891148968ea5
     run-tests: true
