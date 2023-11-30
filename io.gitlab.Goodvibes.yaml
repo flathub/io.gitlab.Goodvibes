@@ -26,16 +26,6 @@ cleanup:
   - /share/man
 
 modules:
-  - name: libsoup
-    buildsystem: meson
-    config-opts:
-      - '-Dgssapi=disabled'
-      - '-Dvapi=disabled'
-    sources:
-      - type: archive
-        url: https://gitlab.gnome.org/GNOME/libsoup/-/archive/2.74.3/libsoup-2.74.3.tar.gz
-        sha256: 2e7a1313c2223c7e70cda90a8c02c679ab2bf3935c07b5bb028a9b5550411b96
-
   - name: mutest
     buildsystem: meson
     sources:
