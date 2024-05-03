@@ -52,4 +52,8 @@ modules:
         url: https://gitlab.com/goodvibes/goodvibes.git
         tag: v0.8.0
         commit: a6397bbd4b35354dd06e45eba6266a7317b57252
+      - type: patch
+        path: 0001-Revert-Add-Purism-form_factor-to-.appdata-file.patch
+      - type: patch
+        path: 0002-Add-some-details-in-appdata-file.patch
     run-tests: true
