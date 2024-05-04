@@ -8,6 +8,11 @@ To build the package, run:
 
     $ make
 
+To force rebuild (when the manifest didn't change, but we know that
+the remote Git repository changed):
+
+    $ make -B
+
 This builds both the Flatpak repo (in `repo`) and the bundle as
 `<app-id>.flatpak`. To install the bundle:
 

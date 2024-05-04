@@ -1,0 +1,57 @@
+From f99da61302a8044697df155f300b05f5fca5920e Mon Sep 17 00:00:00 2001
+From: Arnaud Rebillout <elboulangero@gmail.com>
+Date: Fri, 3 May 2024 21:01:14 +0700
+Subject: [PATCH 1/2] Revert "Add Purism::form_factor to .appdata file"
+
+This reverts commit 952a694019dd94625be3970e10760478c3f60c97.
+
+The FlatHub build service refuses it, cf.
+<https://buildbot.flathub.org/#/builders/37/builds/14626>:
+
+```
+flatpak run --command=flatpak-builder-lint org.flatpak.Builder --exceptions repo repo
+ in dir /srv/buildbot/worker/build-x86_64-2/build (timeout 1200 secs)
+ watching logfiles {}
+ argv: b'flatpak run --command=flatpak-builder-lint org.flatpak.Builder --exceptions repo repo'
+ using PTY: False
+{
+    "errors": [
+        "appstream-failed-validation"
+    ],
+    "warnings": [
+        "appstream-screenshot-missing-caption"
+    ],
+    "appstream": [
+        "E: io.gitlab.Goodvibes:186: custom-key-duplicated Purism::form_factor"
+    ],
+    "message": "Please consult the documentation at https://docs.flathub.org/docs/for-app-authors/linter"
+}
+program finished with exit code 1
+elapsedTime=0.714108
+```
+
+More links:
+- https://discourse.gnome.org/t/appdata-custom-purism-tags/17544/2
+- https://github.com/ximion/appstream/issues/476
+---
+ data/io.gitlab.Goodvibes.appdata.xml.in | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/data/io.gitlab.Goodvibes.appdata.xml.in b/data/io.gitlab.Goodvibes.appdata.xml.in
+index 06f816d..4ab0232 100644
+--- a/data/io.gitlab.Goodvibes.appdata.xml.in
++++ b/data/io.gitlab.Goodvibes.appdata.xml.in
+@@ -78,10 +78,4 @@
+   <provides>
+     <binary>goodvibes</binary>
+   </provides>
+-
+-  <custom>
+-    <value key="Purism::form_factor">workstation</value>
+-    <value key="Purism::form_factor">mobile</value>
+-  </custom>
+-
+ </component>
+-- 
+2.43.0
+
