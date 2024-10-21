@@ -39,6 +39,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/goodvibes/goodvibes.git
-        tag: v0.8.0
-        commit: a6397bbd4b35354dd06e45eba6266a7317b57252
+        tag: v0.8.1
+        commit: 4dcf8414ff9dc7fc3f0dad3a0622bdf8d45a21c6
     run-tests: true
