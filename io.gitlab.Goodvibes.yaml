@@ -26,17 +26,6 @@ cleanup:
   - /share/man
 
 modules:
-  # Build latest gstreamer release
-  - name: gstreamer
-    buildsystem: meson
-    config-opts: [ -Ddoc=disabled ]
-    sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/gstreamer/gstreamer.git
-        tag: 1.24.3
-        commit: da69285863780ce0ebb51482edcf1d54c7c29533
-        disable-submodules: true
-
   - name: mutest
     buildsystem: meson
     sources:
