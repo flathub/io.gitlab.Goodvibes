@@ -2,7 +2,7 @@ APP_ID := io.gitlab.Goodvibes
 
 RUNTIME_PLATFORM := org.freedesktop.Platform
 RUNTIME_SDK      := org.freedesktop.Sdk
-RUNTIME_VERSION  := 23.08
+RUNTIME_VERSION  := $(shell sed -n 's/^runtime-version: //p' $(APP_ID).yaml | tr -d -c '[[:alnum:].]')
 
 BUILD_DIR := build
 REPO_DIR  := repo
